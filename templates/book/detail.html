@@ -1,0 +1,21 @@
+<h1>Detalle de Libros</h1>
+
+<p>{{ object.title }}</p>
+<p>{{ object.release_date }}</p>
+<p>{{ object.category }}</p>
+
+<p>-----------------Many to Many-----------------</p>
+<ul>
+    
+    {% for author in book.authores.all %}
+    <li>{{ author }}</li>   
+    {% endfor %}
+        
+</ul>
+
+<p>-----------------Add Authors-----------------</p>
+
+<form method="POST">{% csrf_token %}
+    <input type="text" placeholder="Agregar autor">
+    <button type="submit">Guardar</button>
+</form>
